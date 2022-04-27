@@ -58,10 +58,10 @@ class EmojiGame extends Component {
   clickEmoji = id => {
     const {emojisList} = this.props
     const {clickedEmojisList} = this.state
-    const isEmojiPresent = clickedEmojisList.includes(id)
+    const isEmojiPresent = clickedEmojisList.filter(each => each === id)
     const clickedEmojisLength = clickedEmojisList.length
 
-    if (isEmojiPresent) {
+    if (isEmojiPresent >= 2) {
       this.finishGameAndSetTopScore(clickedEmojisLength)
     } else {
       if (emojisList.length - 1 === clickedEmojisLength) {
